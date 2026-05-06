@@ -27,46 +27,44 @@ const latestNotes = allNotes
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-12">Hello World!</h1>
+		<h1 class="title mb-4">Hello!</h1>
 		<p class="mb-4">
 			Hi, I’m a theme for Astro, a simple starter that you can use to create your website or blog.
 			If you want to know more about how you can customise me, add more posts, and make it your own,
 			click on the GitHub icon link below and it will take you to my repo.
 		</p>
-		<SocialList />
 	</section>
 	{
 		pinnedPosts.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title mb-6 text-xl">Pinned Posts</h2>
+			<section class="mt-8">
+				<h2 class="title mb-2 text-xl">Posts</h2>
 				<ul class="space-y-4" role="list">
 					{pinnedPosts.map((p) => (
-						<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
+						<li>
 							<PostPreview post={p} />
 						</li>
 					))}
-				</ul>
+        </ul>
+        <a href="/posts" class="inline-block font-bold mt-6 cactus-link">View All</a>
 			</section>
 		)
 	}
-	<section class="mt-16">
-		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
-		<ul class="space-y-4" role="list">
-			{
-				latestPosts.map((p) => (
-					<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
-	</section>
+	<!-- <section class="mt-10"> -->
+	<!-- 	<h2 class="title text-accent mb-4 text-xl"><a href="/posts/">Posts</a></h2> -->
+	<!-- 	<ul class="space-y-4" role="list"> -->
+	<!-- 		{ -->
+	<!-- 			latestPosts.map((p) => ( -->
+	<!-- 				<li class="grid gap-1 sm:grid-cols-[auto_1fr]"> -->
+	<!-- 					<PostPreview post={p} /> -->
+	<!-- 				</li> -->
+	<!-- 			)) -->
+	<!-- 		} -->
+	<!-- 	</ul> -->
+	<!-- </section> -->
 	{
 		latestNotes.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title text-accent mb-6 text-xl">
-					<a href="/notes/">Notes</a>
-				</h2>
+			<section class="mt-8">
+				<h2 class="title mb-2 text-xl">Notes</h2>
 				<ul class="space-y-6" role="list">
 					{latestNotes.map((note) => (
 						<li>
@@ -74,6 +72,7 @@ const latestNotes = allNotes
 						</li>
 					))}
 				</ul>
+        <a href="/notes" class="inline-block font-bold mt-6 cactus-link">View All</a>
 			</section>
 		)
 	}

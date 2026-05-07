@@ -6,20 +6,19 @@ import { siteConfig } from "../../site.config";
 ---
 
 <header class="group relative mb-8 flex items-center sm:ps-16" id="main-header">
-	<div class="flex sm:flex-col sm:relative">
+	<div class="flex sm:relative sm:flex-col">
 		<a
 			aria-current={Astro.url.pathname === "/" ? "page" : false}
 			class="inline-flex items-center sm:inline-block"
 			href="/"
 		>
-      <svg
-        class="shrink-0 h-8 w-8 text-global-text hover:text-accent -translate-y-0.5 mr-2 sm:mr-0 sm:absolute sm:-inset-s-16 sm:me-0 sm:h-10 sm:w-10 sm:top-1/2 sm:-translate-y-1/2"
+			<svg
+				class="text-global-text hover:text-accent mr-2 h-8 w-8 shrink-0 -translate-y-0.5 sm:absolute sm:-inset-s-16 sm:top-1/2 sm:me-0 sm:mr-0 sm:h-10 sm:w-10 sm:-translate-y-1/2"
 				viewBox="0 0 130.99191 124.71604"
 				version="1.1"
 				id="svg1"
 				xml:space="preserve"
 				xmlns="http://www.w3.org/2000/svg"
-				xmlns:svg="http://www.w3.org/2000/svg"
 			>
 				<title>Tsunamic Technologies</title>
 				<defs id="defs1"></defs>
@@ -30,7 +29,7 @@ import { siteConfig } from "../../site.config";
 						id="path1"></path>
 				</g>
 			</svg>
-			<span class="hover:text-accent font-bold text-lg">{siteConfig.title}</span>
+			<span class="hover:text-accent font-bold sm:text-lg">{siteConfig.title}</span>
 		</a>
 		<nav
 			aria-label="Main menu"
@@ -52,18 +51,18 @@ import { siteConfig } from "../../site.config";
 	</div>
 	<Search />
 	<ThemeToggle />
-	<mobile-button>
+	<mobile-button class="ms-2 sm:ms-4">
 		<button
 			aria-expanded="false"
 			aria-haspopup="menu"
-			class="group relative ms-4 h-5 w-5 sm:invisible sm:hidden"
+			class="group hover:text-accent relative h-9 w-9 cursor-pointer rounded-md p-2 sm:invisible sm:hidden"
 			id="toggle-navigation-menu"
 			type="button"
 		>
 			<span class="sr-only">Open main menu</span>
 			<svg
 				aria-hidden="true"
-				class="absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transition-all group-aria-expanded:scale-0 group-aria-expanded:opacity-0"
+				class="absolute start-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 transition-all group-aria-expanded:scale-0 group-aria-expanded:opacity-0"
 				fill="none"
 				focusable="false"
 				id="line-svg"
@@ -77,7 +76,7 @@ import { siteConfig } from "../../site.config";
 			</svg>
 			<svg
 				aria-hidden="true"
-				class="text-accent absolute start-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all group-aria-expanded:scale-100 group-aria-expanded:opacity-100"
+				class="text-accent absolute start-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all group-aria-expanded:scale-100 group-aria-expanded:opacity-100"
 				fill="none"
 				focusable="false"
 				id="cross-svg"

@@ -17,8 +17,5 @@ const { as: Tag = "div", post, withDesc = false } = Astro.props;
 		{post.data.title}
 	</a>
 </Tag>
-<FormattedDate
-	class="min-w-30 text-xs text-gray-600 dark:text-gray-400"
-	date={post.data.publishDate}
-/>
+<FormattedDate class="min-w-30 text-gray-600 dark:text-gray-400" date={post.data.publishDate} />
 {withDesc && <q class="line-clamp-3 italic">{post.data.description}</q>}

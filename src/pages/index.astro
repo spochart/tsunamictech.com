@@ -12,10 +12,6 @@ const allPosts = await getAllPosts();
 const allPostsByDate = allPosts.sort(collectionDateSort) as CollectionEntry<"post">[];
 const latestPosts = allPostsByDate.slice(0, MAX_POSTS);
 
-// Pinned Posts, set to a max of 3;
-// const MAX_PINNED_POSTS = 3;
-// const pinnedPosts = allPostsByDate.filter((p) => p.data.pinned).slice(0, MAX_PINNED_POSTS);
-
 // Notes
 const MAX_NOTES = 5;
 const allNotes = await getCollection("note");
@@ -26,7 +22,7 @@ const latestNotes = allNotes
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-4">Hello!</h1>
+		<h1 class="title mb-2">About Us</h1>
 		<p class="mb-4">
 			Hi, I'm a theme for Astro, a simple starter that you can use to create your website or blog.
 			If you want to know more about how you can customise me, add more posts, and make it your own,
@@ -35,17 +31,18 @@ const latestNotes = allNotes
 	</section>
 	{
 		latestNotes.length > 0 && (
-			<section class="mt-6">
+			<section class="mt-8">
 				<h2 class="title mb-2 text-lg">Notes</h2>
-				<ul class="mt-4" role="list">
+				<ul class="mt-4 space-y-4" role="list">
 					{latestNotes.map((note) => (
-						<li class="border-b border-dashed border-gray-500 py-4 first:pt-0">
+						<li class="pb-4 last:pb-0">
 							<Note note={note} as="h3" isPreview />
 						</li>
 					))}
 				</ul>
-				<a href="/notes" class="cactus-link mt-4 inline-block font-bold">
-					View All Notes
+				<a class="cactus-link mt-6 inline-block" href="/notes/">
+					View all <span aria-hidden="true">→</span>
+					<span class="sr-only">notes</span>
 				</a>
 			</section>
 		)
@@ -54,15 +51,16 @@ const latestNotes = allNotes
 		latestPosts.length > 0 && (
 			<section class="mt-8">
 				<h2 class="title mb-2 text-lg">Posts</h2>
-				<ul class="space-y-4" role="list">
+				<ul class="mt-4 space-y-2" role="list">
 					{latestPosts.map((p) => (
 						<li>
 							<PostPreview post={p} />
 						</li>
 					))}
 				</ul>
-				<a href="/posts" class="cactus-link mt-4 inline-block font-bold">
-					View All Posts
+				<a class="cactus-link mt-6 inline-block" href="/posts/">
+					View all <span aria-hidden="true">→</span>
+					<span class="sr-only">posts</span>
 				</a>
 			</section>
 		)

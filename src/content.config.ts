@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z, type CollectionEntry } from "astro:content";
 import { glob } from "astro/loaders";
 
 function removeDupsAndLowerCase(array: string[]) {
@@ -55,5 +55,7 @@ const tag = defineCollection({
 		description: z.string().optional(),
 	}),
 });
+
+export type NamedCollections = Record<string, CollectionEntry<"post" | "note" | "tag">[]>;
 
 export const collections = { post, note, tag };

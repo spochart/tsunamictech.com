@@ -1,7 +1,17 @@
 ---
+import { getCollection } from "astro:content";
 import { menuLinks, siteConfig } from "@/site.config";
+import { compactMenuLinks } from "@/utils/site";
+import { getAllPosts } from "@/data/post";
 
 const year = new Date().getFullYear();
+
+const allNotes = await getCollection("note");
+const allPosts = await getAllPosts();
+const collections = {
+	notes: allNotes,
+	posts: allPosts,
+};
 ---
 
 <footer
@@ -14,7 +24,7 @@ const year = new Date().getFullYear();
 	<nav aria-labelledby="footer_links" class="flex gap-x-0 divide-x divide-gray-500">
 		<p id="footer_links" class="sr-only">More on this site</p>
 		{
-			menuLinks.map((link) => (
+			compactMenuLinks(menuLinks, collections).map((link) => (
 				<a class="cactus-link px-4" href={link.path}>
 					{link.title}
 				</a>

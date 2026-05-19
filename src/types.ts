@@ -80,4 +80,9 @@ export interface Summary {
 	value: string;
 }
 
+export interface MenuLink {
+	path: string;
+	title: string;
+}
+
 export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning";

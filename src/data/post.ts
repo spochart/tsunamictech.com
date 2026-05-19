@@ -1,5 +1,6 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 
+// TODO: Add caching to collections
 export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
 	return await getCollection("post", ({ data }) => {
 		return import.meta.env.PROD ? !data.draft : true;

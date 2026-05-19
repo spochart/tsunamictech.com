@@ -6,13 +6,11 @@ import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 
-// Posts
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = allPosts.sort(collectionDateSort) as CollectionEntry<"post">[];
 const latestPosts = allPostsByDate.slice(0, MAX_POSTS);
 
-// Notes
 const MAX_NOTES = 5;
 const allNotes = await getCollection("note");
 const latestNotes = allNotes
@@ -40,10 +38,12 @@ const latestNotes = allNotes
 						</li>
 					))}
 				</ul>
-				<a class="cactus-link mt-6 inline-block" href="/notes/">
-					View all <span aria-hidden="true">→</span>
-					<span class="sr-only">notes</span>
-				</a>
+				{latestNotes.length > 1 && (
+					<a class="cactus-link mt-6 inline-block" href="/notes/">
+						View all <span aria-hidden="true">→</span>
+						<span class="sr-only">notes</span>
+					</a>
+				)}
 			</section>
 		)
 	}
@@ -58,10 +58,12 @@ const latestNotes = allNotes
 						</li>
 					))}
 				</ul>
-				<a class="cactus-link mt-6 inline-block" href="/posts/">
-					View all <span aria-hidden="true">→</span>
-					<span class="sr-only">posts</span>
-				</a>
+				{latestPosts.length > 1 && (
+					<a class="cactus-link mt-6 inline-block" href="/posts/">
+						View all <span aria-hidden="true">→</span>
+						<span class="sr-only">posts</span>
+					</a>
+				)}
 			</section>
 		)
 	}

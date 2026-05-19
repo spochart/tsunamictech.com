@@ -1,4 +1,4 @@
-import { defineCollection, z, type CollectionEntry } from "astro:content";
+import { type CollectionEntry, defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 function removeDupsAndLowerCase(array: string[]) {
